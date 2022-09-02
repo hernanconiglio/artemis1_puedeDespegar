@@ -28,18 +28,18 @@ object propulsorPrincipal {
 	method refrigerarMotores() {
 		motores.forEach({motor=>motor.refrigerarMotor()})
 	}
-	method estaOK() = tieneCombustible && motores.all({motor=>motor.estaRefrigerado()})
+	method estaOK() = nivelDeCombustibleOK && motores.all({motor=>motor.estaRefrigerado()})
 }
 
 object coheteSolidoIzquierdo {
 	var ignicion = false
-	method estaOK() = true
+	method estaOK() = ignicion
 	method darleIgnicion() {ignicion=true}
 }
 
 object coheteSolidoDerecho {
 	var ignicion = false
-	method estaOK() = true
+	method estaOK() = ignicion
 	method darleIgnicion() {ignicion=true}
 }
 

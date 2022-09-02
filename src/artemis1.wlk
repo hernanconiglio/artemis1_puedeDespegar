@@ -6,8 +6,8 @@ object artemis1 {
 	const propulsionPrincipal = propulsorPrincipal
 	
 	method puedeDespegar()  = self.estaTodoOK()
-
-	method armarcohetesPrimeraFase(motorSolidoIzquierdo,motorSolidoDerecho) {
+	
+	method armarCohetesPrimeraFase(motorSolidoIzquierdo,motorSolidoDerecho) {
 		cohetesSolidos.add(motorSolidoIzquierdo)
 		cohetesSolidos.add(motorSolidoDerecho)
 	}
@@ -16,6 +16,7 @@ object artemis1 {
 	
 	
 	method estaTodoOK() =
+	  cohetesSolidos.size() == 2 &&
 	  cohetesSolidos.all({c => c.estaOK()}) &&
 	  capsula.estaOK() &&
 	  propulsionPrincipal.estaOK()
